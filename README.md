@@ -108,7 +108,7 @@ oculus/
 │   ├── sheet_data.png                  # Google Sheet with activity logs
 │   └── n8n_workflow.png                # n8n automation setup
 │
-├── setup.md                            # Complete setup guide (step-by-step)
+├── SETUP.md                            # Complete setup guide (step-by-step)
 ├── README.md                           # This file
 └── .gitignore                          # Prevents accidental secret commits
 ```
@@ -131,7 +131,7 @@ oculus/
 
 ## 🚀 Quick Start
 
-1. **Read the [Setup Guide](./setup.md)** for complete step-by-step instructions
+1. **Read the [Setup Guide](./SETUP.md)** for complete step-by-step instructions
 2. Install ActivityWatch, n8n, and configure Google Apps Script
 3. Set up your Gemini API key
 4. Create a daily trigger at your preferred time
@@ -179,7 +179,7 @@ Local automation that collects ActivityWatch data every hour.
 | n8n workflow fails | Check ActivityWatch bucket name, timezone settings |
 | Emoji rendering issues in email | Minor visual glitch, doesn't affect functionality |
 
-See [setup.md](./setup.md) for detailed troubleshooting.
+See [SETUP.md](./SETUP.md) for detailed troubleshooting.
 
 ---
 
@@ -245,6 +245,6 @@ All contributions welcome!
 
 ---
 
-**Questions?** Check [setup.md](./setup.md) for detailed instructions and troubleshooting.
+**Questions?** Check [SETUP.md](./SETUP.md) for detailed instructions and troubleshooting.
 
-**Ready to start?** Head to [setup.md](./setup.md) now!
+**Ready to start?** Head to [SETUP.md](./SETUP.md) now!
