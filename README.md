@@ -4,6 +4,9 @@
 ![Privacy](https://img.shields.io/badge/privacy-first-blue)
 ![Self Hosted](https://img.shields.io/badge/self--hosted-yes-orange)
 ![Built with n8n](https://img.shields.io/badge/built%20with-n8n-red)
+![Google Apps Script](https://img.shields.io/badge/google-apps--script-4285F4?logo=google&logoColor=white)
+![Gemini AI](https://img.shields.io/badge/powered%20by-gemini%20ai-8E75B2)
+![ActivityWatch](https://img.shields.io/badge/activitywatch-local%20tracking-5E81AC)
 
 **Local Activity Tracking → Smart Productivity Reports**
 
