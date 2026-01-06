@@ -1,8 +1,13 @@
 # 👁️ Oculus
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Privacy](https://img.shields.io/badge/privacy-first-blue)
+![Self Hosted](https://img.shields.io/badge/self--hosted-yes-orange)
+![Built with n8n](https://img.shields.io/badge/built%20with-n8n-red)
+
 **Local Activity Tracking → Smart Productivity Reports**
 
-Daily Intelligence is a **privacy-first, open-source productivity system** that tracks your browsing activity locally, stores it in Google Sheets, and sends you a personalized daily email report with AI-generated insights and analysis.
+**Oculus** is a **privacy-first, open-source productivity system** that tracks your browsing activity locally, stores it in Google Sheets, and sends you a personalized daily email report with AI-generated insights and analysis.
 
 All data stays under your control:
 - Activity tracking runs **locally** on your machine
@@ -103,7 +108,7 @@ oculus/
 │   ├── sheet_data.png                  # Google Sheet with activity logs
 │   └── n8n_workflow.png                # n8n automation setup
 │
-├── SETUP.md                            # Complete setup guide (step-by-step)
+├── setup.md                            # Complete setup guide (step-by-step)
 ├── README.md                           # This file
 └── .gitignore                          # Prevents accidental secret commits
 ```
@@ -185,6 +190,19 @@ See [setup.md](./setup.md) for detailed troubleshooting.
 - **Adjust trigger time** in Apps Script Triggers menu
 - **Filter specific sites** by editing the n8n workflow
 - **Change email recipient** in the `GmailApp.sendEmail()` call
+
+---
+
+## 🔐 Data & Privacy Model
+
+- No data leaves your machine without your consent
+- ActivityWatch runs locally
+- n8n runs locally
+- Google Sheet belongs to you
+- Gemini API key stored securely in Apps Script Properties
+- No telemetry, tracking, or analytics
+
+This project cannot see your data. Only you can.
 
 ---
 
