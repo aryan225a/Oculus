@@ -1,0 +1,16 @@
+# Secrets
+.env
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# n8n local data (never commit)
+.n8n/
+
+# Node
+node_modules/
