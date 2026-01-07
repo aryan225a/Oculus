@@ -421,17 +421,61 @@ function renderComparisonTable(labelA, statsA, labelB, statsB) {
 }
 
 
-function callGemini(prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-  const payload = {
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.7 }
+function callGeminiWithRetry(prompt) {
+  const MAX_RETRIES = 2;
+  const RETRY_DELAY_MS = 5000;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+      const payload = {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7 }
+      };
+
+      const response = UrlFetchApp.fetch(url, {
+        method: "post",
+        contentType: "application/json",
+        payload: JSON.stringify(payload),
+        muteHttpExceptions: true
+      });
+
+      if (response.getResponseCode() !== 200) {
+        throw new Error(`Gemini API error: ${response.getResponseCode()}`);
+      }
+
+      const json = JSON.parse(response.getContentText());
+      const text = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!text) {
+        throw new Error("Empty Gemini response");
+      }
+
+      return {
+        success: true,
+        content: text
+      };
+
+    } catch (err) {
+      Logger.log(`Gemini attempt ${attempt} failed: ${err.message}`);
+
+      if (attempt < MAX_RETRIES) {
+        Utilities.sleep(RETRY_DELAY_MS);
+      }
+    }
+  }
+
+  return {
+    success: false,
+    content: `
+## AI Analysis Unavailable
+
+- The AI service was temporarily overloaded.
+- Your activity data, charts, and insights are still shown below.
+- This does not affect future reports.
+
+`
   };
-  const res = UrlFetchApp.fetch(url, {
-    method: "post",
-    contentType: "application/json",
-    payload: JSON.stringify(payload)
-  });
-  const json = JSON.parse(res.getContentText());
-  return json?.candidates?.[0]?.content?.parts?.[0]?.text || "AI analysis unavailable.";
 }
+
