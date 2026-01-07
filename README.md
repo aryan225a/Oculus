@@ -43,6 +43,28 @@ All data stays under your control:
 
 ---
 
+## 🚀 Quick Start
+
+1. **Read the [Setup Guide](./SETUP.md)** for complete step-by-step instructions
+2. Install ActivityWatch, n8n, and configure Google Apps Script
+3. Set up your Gemini API key
+4. Create a daily trigger at your preferred time
+5. Start tracking — your first report arrives tomorrow!
+
+**Estimated setup time: 30-45 minutes**
+
+---
+
+## 📋 Requirements
+
+- **ActivityWatch** — Free, open-source activity tracker
+- **n8n** — Free, self-hosted automation platform
+- **Google Account** — For Sheets and Apps Script
+- **Gemini API Key** — Free tier available at [ai.google.dev](https://ai.google.dev)
+- **Local machine running 24/7 (optional)** — For continuous tracking
+
+---
+
 ## 🏗️ System Architecture
 
 ```
@@ -74,26 +96,6 @@ All data stays under your control:
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
-
-**Fault-tolerant design:**
-- Laptop off → no data collected (expected)
-- Laptop on → collection resumes automatically
-- No duplicate or corrupted reports
-- Skip days with no activity without errors
-
----
-
-## 🔒 Privacy & Security
-
-✅ **All tracking is local** — Activity data never leaves your machine until you authorize it  
-✅ **No third-party analytics** — No Google Analytics, Mixpanel, or similar  
-✅ **Private Google Sheet** — Only visible to you  
-✅ **Secure API key storage** — Gemini API key stored in Apps Script Properties (encrypted)  
-✅ **No credentials in repository** — API keys never committed to git  
-✅ **Open source** — Full transparency, auditable code
-
-**You own 100% of your data.**
-
 ---
 
 ## 📁 Repository Structure
@@ -132,25 +134,25 @@ oculus/
 
 ---
 
-## 🚀 Quick Start
-
-1. **Read the [Setup Guide](./SETUP.md)** for complete step-by-step instructions
-2. Install ActivityWatch, n8n, and configure Google Apps Script
-3. Set up your Gemini API key
-4. Create a daily trigger at your preferred time
-5. Start tracking — your first report arrives tomorrow!
-
-**Estimated setup time: 30-45 minutes**
+**Fault-tolerant design:**
+- Laptop off → no data collected (expected)
+- Laptop on → collection resumes automatically
+- No duplicate or corrupted reports
+- Skip days with no activity without errors
+- If the AI service is temporarily unavailable, Oculus automatically retries and gracefully falls back without interrupting report delivery.
 
 ---
 
-## 📋 Requirements
+## 🔒 Privacy & Security
 
-- **ActivityWatch** — Free, open-source activity tracker
-- **n8n** — Free, self-hosted automation platform
-- **Google Account** — For Sheets and Apps Script
-- **Gemini API Key** — Free tier available at [ai.google.dev](https://ai.google.dev)
-- **Local machine running 24/7 (optional)** — For continuous tracking
+✅ **All tracking is local** — Activity data never leaves your machine until you authorize it  
+✅ **No third-party analytics** — No Google Analytics, Mixpanel, or similar  
+✅ **Private Google Sheet** — Only visible to you  
+✅ **Secure API key storage** — Gemini API key stored in Apps Script Properties (encrypted)  
+✅ **No credentials in repository** — API keys never committed to git  
+✅ **Open source** — Full transparency, auditable code
+
+**You own 100% of your data.**
 
 ---
 
@@ -160,14 +162,17 @@ Screenshots are anonymized and represent a real run of the system.
 
 ### Daily Email Report
 Personalized AI-generated productivity report delivered to your inbox.
+
 ![Daily Email Report](screenshots/email_report.png)
 
 ### Activity Data in Google Sheets
 Hourly activity logs collected locally and stored securely in your sheet.
+
 ![Google Sheets Data](screenshots/sheet_data.png)
 
 ### n8n Automation Workflow
 Local automation that collects ActivityWatch data every hour.
+
 ![n8n Workflow](screenshots/n8n_workflow.png)
 
 ---
@@ -193,19 +198,6 @@ See [SETUP.md](./SETUP.md) for detailed troubleshooting.
 - **Adjust trigger time** in Apps Script Triggers menu
 - **Filter specific sites** by editing the n8n workflow
 - **Change email recipient** in the `GmailApp.sendEmail()` call
-
----
-
-## 🔐 Data & Privacy Model
-
-- No data leaves your machine without your consent
-- ActivityWatch runs locally
-- n8n runs locally
-- Google Sheet belongs to you
-- Gemini API key stored securely in Apps Script Properties
-- No telemetry, tracking, or analytics
-
-This project cannot see your data. Only you can.
 
 ---
 
@@ -244,7 +236,7 @@ Found a bug? Have an improvement idea?
 2. Create a feature branch
 3. Submit a pull request
 
-All contributions welcome!
+All contributions welcome! Check [CONTRIBUTION.md](./CONTRIBUTION.md) for detailed instructions.
 
 ---
 
